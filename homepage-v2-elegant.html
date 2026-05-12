@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Business Courses | Expert-Led Training</title>
+    <style>
+        :root {
+            --primary: #1e3a5f;
+            --primary-light: #2d4a6f;
+            --accent: #059669;
+            --accent-hover: #047857;
+            --text: #1f2937;
+            --text-light: #6b7280;
+            --bg-light: #fafaf9;
+            --white: #ffffff;
+            --border: #e5e7eb;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg-light);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 30px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--primary);
+            color: rgba(255,255,255,0.8);
+            padding: 10px 0;
+            font-size: 13px;
+            font-weight: 300;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: var(--accent);
+            text-decoration: none;
+            margin-left: 25px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .top-bar a:hover {
+            color: var(--white);
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            font-size: 26px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px;
+        }
+
+        .nav-menu a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 13px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            background: transparent;
+            color: var(--primary);
+            padding: 12px 28px;
+            border: 1px solid var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .header-cta:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: var(--white);
+            color: var(--primary);
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+            color: var(--primary);
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin: 0 auto 40px;
+            color: var(--text-light);
+            font-weight: 400;
+            line-height: 1.8;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 16px 45px;
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+            border: 1px solid var(--primary);
+        }
+
+        .hero-cta:hover {
+            background: transparent;
+            color: var(--primary);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--white);
+            padding: 60px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 500;
+        }
+
+        /* Category Filter */
+        .category-filter {
+            padding: 50px 0;
+            background: var(--bg-light);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .filter-label {
+            font-weight: 500;
+            color: var(--primary);
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .category-select {
+            padding: 14px 50px 14px 25px;
+            font-size: 14px;
+            border: 1px solid var(--border);
+            background: var(--white);
+            color: var(--text);
+            cursor: pointer;
+            min-width: 300px;
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231a1a2e' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 400;
+        }
+
+        .category-select:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .clear-filter {
+            padding: 14px 30px;
+            background: transparent;
+            border: 1px solid var(--border);
+            color: var(--text);
+            font-weight: 500;
+            font-size: 12px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .clear-filter:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        /* Featured Courses Slider */
+        .featured-courses {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-header h2 {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 500px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Slider Container */
+        .slider-container {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 60px;
+        }
+
+        .slider-wrapper {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            gap: 30px;
+        }
+
+        .course-card {
+            min-width: calc(33.333% - 20px);
+            background: var(--white);
+            border: 1px solid var(--border);
+            overflow: hidden;
+            transition: all 0.4s;
+            flex-shrink: 0;
+        }
+
+        .course-card:hover {
+            box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+            transform: translateY(-8px);
+            border-color: var(--accent);
+        }
+
+        .course-card.hidden {
+            display: none;
+        }
+
+        @media (max-width: 968px) {
+            .course-card {
+                min-width: calc(50% - 15px);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .course-card {
+                min-width: 100%;
+            }
+        }
+
+        .course-image {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(135deg, var(--cream) 0%, var(--bg-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 3rem;
+        }
+
+        .course-content {
+            padding: 30px;
+        }
+
+        .course-category {
+            color: var(--accent);
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .course-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .course-card p {
+            color: var(--text-light);
+            font-size: 14px;
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+        }
+
+        .course-price {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--primary);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .course-price .original {
+            font-size: 1rem;
+            color: #999;
+            text-decoration: line-through;
+            margin-right: 10px;
+            font-weight: 400;
+        }
+
+        .course-btn {
+            background: transparent;
+            color: var(--primary);
+            padding: 10px 24px;
+            border: 1px solid var(--primary);
+            text-decoration: none;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .course-btn:hover {
+            background: var(--primary);
+            color: var(--white);
+        }
+
+        /* Slider Navigation */
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            color: var(--primary);
+            border: 1px solid var(--border);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+
+        .slider-nav:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+
+        .slider-nav.prev {
+            left: 0;
+        }
+
+        .slider-nav.next {
+            right: 0;
+        }
+
+        .slider-nav:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        /* Slider Dots */
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 40px;
+        }
+
+        .slider-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--border);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .slider-dot.active {
+            background: var(--accent);
+            transform: scale(1.2);
+        }
+
+        .slider-dot:hover {
+            background: var(--primary);
+        }
+
+        /* No Results Message */
+        .no-results {
+            text-align: center;
+            padding: 80px 20px;
+            color: var(--text-light);
+            display: none;
+        }
+
+        .no-results.show {
+            display: block;
+        }
+
+        .no-results h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+            font-size: 1.8rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Why Choose Us */
+        .why-us {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 50px;
+            margin-top: 60px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 40px 30px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+
+        .feature-item:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--cream);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 1.8rem;
+            color: var(--accent);
+            border: 1px solid var(--border);
+        }
+
+        .feature-item h3 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .feature-item p {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 100px 0;
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-light);
+            padding: 50px 40px;
+            position: relative;
+            border: 1px solid var(--border);
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 6rem;
+            color: var(--accent);
+            opacity: 0.2;
+            position: absolute;
+            top: 20px;
+            left: 30px;
+            font-family: 'Cormorant Garamond', serif;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 1;
+            color: var(--text);
+            line-height: 1.8;
+            font-size: 1.1rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.1rem;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .author-info h4 {
+            color: var(--primary);
+            margin-bottom: 4px;
+            font-size: 1.2rem;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 13px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+            position: relative;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23d4af37' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+
+        .cta-section .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .cta-section h2 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .cta-section p {
+            font-size: 1.1rem;
+            opacity: 0.8;
+            max-width: 500px;
+            margin: 0 auto 40px;
+            font-weight: 300;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--primary);
+            padding: 18px 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: var(--white);
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--primary);
+            color: rgba(255,255,255,0.7);
+            padding: 80px 0 40px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 60px;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 28px;
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .footer-brand h3 span {
+            color: var(--accent);
+            font-style: italic;
+        }
+
+        .footer-brand p {
+            color: rgba(255,255,255,0.6);
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-size: 14px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+        }
+
+        .social-links a {
+            width: 42px;
+            height: 42px;
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            border-color: var(--accent);
+            color: var(--primary);
+        }
+
+        .footer-column h4 {
+            color: var(--white);
+            margin-bottom: 25px;
+            font-size: 13px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column a {
+            color: rgba(255,255,255,0.6);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--accent);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 40px;
+            text-align: center;
+            color: rgba(255,255,255,0.4);
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 30px;
+            }
+
+            .stat-item h3 {
+                font-size: 2.2rem;
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .slider-container {
+                padding: 0 40px;
+            }
+
+            .slider-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .filter-container {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .category-select {
+                min-width: 100%;
+            }
+
+            .cta-section h2 {
+                font-size: 2.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <span>Concierge Support Available 24/7</span>
+                <div>
+                    <a href="#">Member Login</a>
+                    <a href="#">Enrol Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">Elite Learning <span>Institute</span></a>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Curriculum</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Journal</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="#courses" class="header-cta">View Courses</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Advance Your Career with World-Class Business Education</h1>
+            <p>Master in-demand business skills with expert-led courses designed for ambitious professionals.</p>
+            <a href="#courses" class="hero-cta">Discover Our Programmes</a>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>25K+</h3>
+                    <p>Professionals</p>
+                </div>
+                <div class="stat-item">
+                    <h3>98%</h3>
+                    <p>Completion Rate</p>
+                </div>
+                <div class="stat-item">
+                    <h3>200+</h3>
+                    <p>Courses</p>
+                </div>
+                <div class="stat-item">
+                    <h3>4.8★</h3>
+                    <p>Rating</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Category Filter -->
+    <section class="category-filter">
+        <div class="container">
+            <div class="filter-container">
+                <label class="filter-label">Select Discipline:</label>
+                <select class="category-select" id="categorySelect">
+                    <option value="all">All Programmes</option>
+                    <option value="marketing">Digital Marketing</option>
+                    <option value="social-media">Social Media</option>
+                    <option value="seo">SEO & Content</option>
+                    <option value="ecommerce">E-Commerce</option>
+                    <option value="business">Business Strategy</option>
+                    <option value="ai">AI & Automation</option>
+                </select>
+                <button class="clear-filter" id="clearFilter">Reset</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Courses Slider -->
+    <section class="featured-courses" id="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2>Curated Programmes</h2>
+                <p>Hand-selected courses for the modern professional</p>
+            </div>
+
+            <div class="slider-container">
+                <button class="slider-nav prev" id="prevBtn">‹</button>
+                
+                <div class="slider-wrapper">
+                    <div class="slider-track" id="sliderTrack">
+                        <!-- Course 1 -->
+                        <div class="course-card" data-category="social-media">
+                            <div class="course-image">📱</div>
+                            <div class="course-content">
+                                <div class="course-category">Social Media</div>
+                                <h3>The Art of Clubhouse</h3>
+                                <p>Master the exclusive audio platform and cultivate meaningful professional connections.</p>
+                                <div class="course-meta">
+                                    <div class="course-price">
+                                        <span class="original">$297</span>$147
+                                    </div>
+                                    <a href="#" class="course-btn">Details</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Course 2 -->
+                        <div class="course-card" data-category="marketing">
+                            <div class="course-image">🎯</div>
+                            <div class="course-content">
+                                <div class="course-category">Digital Marketing</div>
+                                <h3>Facebook Advertising Mastery</h3>
+                                <p>Create sophisticated campaigns that deliver measurable ROI for discerning brands.</p>
+                                <div class="course-meta">
+                                    <div class="course-price">
+                                        <span class="original">$397</span>$197
+                                    </div>
+                                    <a href="#" class="course-btn">Details</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Course 3 -->
+                        <div class="course-card" data-category="seo">
+                            <div class="course-image">🔍</div>
+                            <div class="course-content">
+                                <div class="course-category">SEO & Content</div>
+                                <h3>Search Engine Optimisation</h3>
+                                <p>Attain premier search rankings through strategic content and technical excellence.</p>
+                                <div class="course-meta">
+                                    <div class="course-price">
+                                        <span class="original">$347</span>$177
+                                    </div>
+                                    <a href="#" class="course-btn">Details</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Course 4 -->
+                        <div class="course-card" data-category="ecommerce">
+                            <div class="course-image">🛒</div>
+                            <div class="course-content">
+                                <div class="course-category">E-Commerce</div>
+                                <h3>Shopify Excellence</h3>
+                                <p>Build an elegant online boutique that reflects your brand's refined aesthetic.</p>
+                                <div
