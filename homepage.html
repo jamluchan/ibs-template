@@ -1,0 +1,834 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[School Name] - Online Marketing Courses | CPD Accredited</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c0d3d;
+            --primary-light: #3d1a52;
+            --accent: #e74c3c;
+            --accent-hover: #c0392b;
+            --text: #333;
+            --text-light: #666;
+            --bg-light: #f5f5f5;
+            --white: #fff;
+            --border: #ddd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--primary);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .header-cta {
+            background: var(--accent);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .header-cta:hover {
+            background: var(--accent-hover);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .hero-cta {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .hero-cta:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Stats Bar */
+        .stats-bar {
+            background: var(--bg-light);
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 5px;
+        }
+
+        .stat-item p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Featured Courses */
+        .featured-courses {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .course-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .course-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transform: translateY(-5px);
+        }
+
+        .course-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+        }
+
+        .course-content {
+            padding: 25px;
+        }
+
+        .course-category {
+            color: var(--accent);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        .course-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .course-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .course-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 15px;
+            border-top: 1px solid var(--border);
+        }
+
+        .course-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .course-price .original {
+            font-size: 1rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+            margin-right: 8px;
+        }
+
+        .course-btn {
+            background: var(--primary);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .course-btn:hover {
+            background: var(--primary-light);
+        }
+
+        /* Why Choose Us */
+        .why-us {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-item h3 {
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .feature-item p {
+            color: var(--text-light);
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 80px 0;
+            background: var(--white);
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .testimonial-card {
+            background: var(--bg-light);
+            padding: 30px;
+            border-radius: 8px;
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: var(--accent);
+            opacity: 0.3;
+            position: absolute;
+            top: 10px;
+            left: 20px;
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-weight: 700;
+        }
+
+        .author-info h4 {
+            color: var(--primary);
+            margin-bottom: 3px;
+        }
+
+        .author-info p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+        }
+
+        .footer-column h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            text-align: center;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .nav-menu {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <span>📞 Call us: [Phone Number] | ✉️ [Email Address]</span>
+                <div>
+                    <a href="#">Login</a>
+                    <a href="#">Register</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">[School] <span>Name</span></a>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Courses</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="#courses" class="header-cta">Browse Courses</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Learn [Topic] From Industry Experts</h1>
+            <p>Join [X]+ students who have transformed their careers with our CPD accredited online courses. Study at your own pace, anywhere, anytime.</p>
+            <a href="#courses" class="hero-cta">Explore Courses</a>
+        </div>
+    </section>
+
+    <!-- Stats Bar -->
+    <section class="stats-bar">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>[X]+</h3>
+                    <p>Online Courses</p>
+                </div>
+                <div class="stat-item">
+                    <h3>[X]K+</h3>
+                    <p>Students Enrolled</p>
+                </div>
+                <div class="stat-item">
+                    <h3>[X]+</h3>
+                    <p>Expert Instructors</p>
+                </div>
+                <div class="stat-item">
+                    <h3>CPD</h3>
+                    <p>Accredited</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Courses -->
+    <section class="featured-courses" id="courses">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Courses</h2>
+                <p>Choose from our wide range of professional courses designed to help you succeed in [your industry]</p>
+            </div>
+            <div class="courses-grid">
+                <div class="course-card">
+                    <div class="course-image">🎓</div>
+                    <div class="course-content">
+                        <div class="course-category">[Category]</div>
+                        <h3>[Course Title 1]</h3>
+                        <p>[Brief description of the course content and what students will learn]</p>
+                        <div class="course-meta">
+                            <div class="course-price">
+                                <span class="original">$[Original]</span>$[Price]
+                            </div>
+                            <a href="#" class="course-btn">View Course</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">📊</div>
+                    <div class="course-content">
+                        <div class="course-category">[Category]</div>
+                        <h3>[Course Title 2]</h3>
+                        <p>[Brief description of the course content and what students will learn]</p>
+                        <div class="course-meta">
+                            <div class="course-price">
+                                <span class="original">$[Original]</span>$[Price]
+                            </div>
+                            <a href="#" class="course-btn">View Course</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">🚀</div>
+                    <div class="course-content">
+                        <div class="course-category">[Category]</div>
+                        <h3>[Course Title 3]</h3>
+                        <p>[Brief description of the course content and what students will learn]</p>
+                        <div class="course-meta">
+                            <div class="course-price">
+                                <span class="original">$[Original]</span>$[Price]
+                            </div>
+                            <a href="#" class="course-btn">View Course</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">💡</div>
+                    <div class="course-content">
+                        <div class="course-category">[Category]</div>
+                        <h3>[Course Title 4]</h3>
+                        <p>[Brief description of the course content and what students will learn]</p>
+                        <div class="course-meta">
+                            <div class="course-price">
+                                <span class="original">$[Original]</span>$[Price]
+                            </div>
+                            <a href="#" class="course-btn">View Course</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">🎯</div>
+                    <div class="course-content">
+                        <div class="course-category">[Category]</div>
+                        <h3>[Course Title 5]</h3>
+                        <p>[Brief description of the course content and what students will learn]</p>
+                        <div class="course-meta">
+                            <div class="course-price">
+                                <span class="original">$[Original]</span>$[Price]
+                            </div>
+                            <a href="#" class="course-btn">View Course</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="course-card">
+                    <div class="course-image">📈</div>
+                    <div class="course-content">
+                        <div class="course-category">[Category]</div>
+                        <h3>[Course Title 6]</h3>
+                        <p>[Brief description of the course content and what students will learn]</p>
+                        <div class="course-meta">
+                            <div class="course-price">
+                                <span class="original">$[Original]</span>$[Price]
+                            </div>
+                            <a href="#" class="course-btn">View Course</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-us">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose [School Name]?</h2>
+                <p>We're committed to providing the highest quality online education</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">✓</div>
+                    <h3>CPD Accredited</h3>
+                    <p>All our courses are CPD accredited, ensuring your learning counts towards professional development.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🎥</div>
+                    <h3>Expert Instructors</h3>
+                    <p>Learn from industry experts who have real-world experience and proven track records.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">⏱</div>
+                    <h3>Learn At Your Pace</h3>
+                    <p>Study whenever and wherever suits you. Lifetime access to all course materials.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">🏆</div>
+                    <h3>Certification</h3>
+                    <p>Receive a certificate upon completion to showcase your new skills to employers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Our Students Say</h2>
+                <p>Success stories from our community of learners</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <p class="testimonial-text">[Testimonial text about how the course helped the student achieve their goals and transform their career or business]</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">[A]</div>
+                        <div class="author-info">
+                            <h4>[Student Name]</h4>
+                            <p>[Role/Company]</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">[Testimonial text about how the course helped the student achieve their goals and transform their career or business]</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">[B]</div>
+                        <div class="author-info">
+                            <h4>[Student Name]</h4>
+                            <p>[Role/Company]</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p class="testimonial-text">[Testimonial text about how the course helped the student achieve their goals and transform their career or business]</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">[C]</div>
+                        <div class="author-info">
+                            <h4>[Student Name]</h4>
+                            <p>[Role/Company]</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Start Learning?</h2>
+            <p>Join thousands of students already learning on our platform. Get instant access to all courses and start your journey today.</p>
+            <a href="#courses" class="cta-btn">Get Started Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>[School Name]</h3>
+                    <p>Empowering learners worldwide with high-quality, CPD accredited online courses. Transform your career with expert-led training.</p>
+                    <div class="social-links">
+                        <a href="#">f</a>
+                        <a href="#">in</a>
+                        <a href="#">ig</a>
+                        <a href="#">yt</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">All Courses</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>[Email Address]</li>
+                        <li>[Phone Number]</li>
+                        <li>[Address Line 1]</li>
+                        <li>[Address Line 2]</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 [School Name]. All rights reserved. CPD Accredited.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

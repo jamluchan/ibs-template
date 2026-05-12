@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[Course Name] | [School Name]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2c0d3d;
+            --primary-light: #3d1a52;
+            --accent: #e74c3c;
+            --accent-hover: #c0392b;
+            --text: #333;
+            --text-light: #666;
+            --bg-light: #f5f5f5;
+            --white: #fff;
+            --border: #ddd;
+            --success: #27ae60;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--white);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--primary);
+            color: var(--white);
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .top-bar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-bar a {
+            color: var(--white);
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: var(--white);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent);
+        }
+
+        .header-cta {
+            background: var(--accent);
+            color: var(--white);
+            padding: 10px 20px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .header-cta:hover {
+            background: var(--accent-hover);
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: var(--bg-light);
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .breadcrumb-content {
+            font-size: 14px;
+            color: var(--text-light);
+        }
+
+        .breadcrumb-content a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .breadcrumb-content a:hover {
+            text-decoration: underline;
+        }
+
+        /* Course Hero */
+        .course-hero {
+            padding: 60px 0;
+            background: var(--white);
+        }
+
+        .course-hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
+        }
+
+        .course-title-section h1 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .course-intro {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+
+        .course-meta-info {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.95rem;
+            color: var(--text-light);
+        }
+
+        .meta-item strong {
+            color: var(--text);
+        }
+
+        .course-image-main {
+            width: 100%;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .course-image-main img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Course Sidebar */
+        .course-sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        .pricing-card {
+            background: var(--white);
+            border: 2px solid var(--border);
+            border-radius: 8px;
+            padding: 30px;
+            margin-bottom: 20px;
+        }
+
+        .pricing-card .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent);
+            margin-bottom: 5px;
+        }
+
+        .pricing-card .original-price {
+            font-size: 1.2rem;
+            color: var(--text-light);
+            text-decoration: line-through;
+            margin-left: 10px;
+        }
+
+        .pricing-card .vat-note {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .enroll-btn {
+            display: block;
+            width: 100%;
+            background: var(--accent);
+            color: var(--white);
+            padding: 15px;
+            border: none;
+            border-radius: 4px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-bottom: 15px;
+        }
+
+        .enroll-btn:hover {
+            background: var(--accent-hover);
+        }
+
+        .guarantee-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+
+        .guarantee-note strong {
+            color: var(--success);
+        }
+
+        .course-features-sidebar {
+            background: var(--bg-light);
+            border-radius: 8px;
+            padding: 25px;
+        }
+
+        .course-features-sidebar h4 {
+            color: var(--primary);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .course-features-sidebar ul {
+            list-style: none;
+        }
+
+        .course-features-sidebar li {
+            padding: 8px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .course-features-sidebar li:last-child {
+            border-bottom: none;
+        }
+
+        .course-features-sidebar li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* Course Content */
+        .course-content-section {
+            padding: 60px 0;
+            background: var(--bg-light);
+        }
+
+        .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 400px;
+            gap: 60px;
+        }
+
+        .main-content h2 {
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .main-content p {
+            margin-bottom: 20px;
+            color: var(--text);
+        }
+
+        /* What You'll Learn */
+        .learning-outcomes {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .learning-outcomes h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .outcomes-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .outcome-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.95rem;
+        }
+
+        .outcome-item::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* Course Modules */
+        .course-modules {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .module-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .module-header h3 {
+            color: var(--primary);
+            font-size: 1.4rem;
+        }
+
+        .module-count {
+            background: var(--primary);
+            color: var(--white);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .module-list {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        .module-item {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .module-item:last-child {
+            border-bottom: none;
+        }
+
+        .module-title {
+            padding: 20px;
+            background: var(--bg-light);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .module-title:hover {
+            background: #e8e8e8;
+        }
+
+        .module-content {
+            padding: 20px;
+            display: none;
+        }
+
+        .module-content.active {
+            display: block;
+        }
+
+        .lesson-list {
+            list-style: none;
+        }
+
+        .lesson-item {
+            padding: 12px 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .lesson-item:last-child {
+            border-bottom: none;
+        }
+
+        .lesson-name {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .lesson-icon {
+            width: 30px;
+            height: 30px;
+            background: var(--primary);
+            color: var(--white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+        }
+
+        .lesson-duration {
+            color: var(--text-light);
+            font-size: 0.9rem;
+        }
+
+        /* Instructor */
+        .instructor-section {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .instructor-section h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .instructor-card {
+            display: flex;
+            gap: 30px;
+        }
+
+        .instructor-image {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 3rem;
+            flex-shrink: 0;
+        }
+
+        .instructor-info h4 {
+            color: var(--primary);
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+        }
+
+        .instructor-title {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .instructor-bio {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* FAQ */
+        .faq-section {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .faq-section h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.4rem;
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            margin-top: 10px;
+            color: var(--text-light);
+            display: none;
+        }
+
+        .faq-answer.active {
+            display: block;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: var(--primary);
+            color: var(--white);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 15px 40px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+        }
+
+        .cta-btn:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: var(--white);
+            padding: 60px 0 30px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand h3 {
+            color: var(--white);
+            margin-bottom: 15px;
+        }
+
+        .footer-brand p {
+            color: #999;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+        }
+
+        .footer-column h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column a {
+            color: #999;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-column a:hover {
+            color: var(--white);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            text-align: center;
+            color: #666;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .course-hero-grid,
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-sidebar {
+                position: static;
+            }
+
+            .outcomes-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .instructor-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .instructor-image {
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .course-title-section h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <span>📞 Call us: [Phone Number] | ✉️ [Email Address]</span>
+                <div>
+                    <a href="#">Login</a>
+                    <a href="#">Register</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">[School] <span>Name</span></a>
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">Courses</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </nav>
+                <a href="#" class="header-cta">Browse Courses</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <div class="container">
+            <div class="breadcrumb-content">
+                <a href="#">Home</a> / <a href="#">Shop</a> / <span>[Course Name]</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Course Hero -->
+    <section class="course-hero">
+        <div class="container">
+            <div class="course-hero-grid">
+                <div class="course-title-section">
+                    <h1>[Course Name] - [Subtitle/Outcome]</h1>
+                    <p class="course-intro">[Compelling course description that explains what the course is about and the main benefit students will get. Keep it engaging and benefit-focused.]</p>
+                    
+                    <div class="course-meta-info">
+                        <div class="meta-item">
+                            <span>👤</span>
+                            <span>Instructor: <strong>[Instructor Name]</strong></span>
+                        </div>
+                        <div class="meta-item">
+                            <span>🎥</span>
+                            <span><strong>[X]</strong> Video Lessons</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>⏱</span>
+                            <span><strong>[X]</strong> Hours Content</span>
+                        </div>
+                        <div class="meta-item">
+                            <span>🏆</span>
+                            <span><strong>CPD</strong> Accredited</span>
+                        </div>
+                    </div>
+
+                    <div class="course-image-main">
+                        <div style="width: 100%; height: 400px; background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary) 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 5rem;">
+                            🎓
+                        </div>
+                    </div>
+                </div>
+
+                <div class="course-sidebar">
+                    <div class="pricing-card">
+                        <div class="price">
+                            $[Price]
+                            <span class="original-price">$[Original]</span>
+                        </div>
+                        <p class="vat-note">Price includes VAT where applicable</p>
+                        <button class="enroll-btn">Enroll Now</button>
+                        <p class="guarantee-note"><strong>✓ 30-Day</strong> Money-Back Guarantee</p>
+                    </div>
+
+                    <div class="course-features-sidebar">
+                        <h4>This Course Includes:</h4>
+                        <ul>
+                            <li>[X] hours on-demand video</li>
+                            <li>[X] downloadable resources</li>
+                            <li>Full lifetime access</li>
+                            <li>Access on mobile & TV</li>
+                            <li>Certificate of completion</li>
+                            <li>CPD Accredited</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Course Content -->
+    <section class="course-content-section">
+        <div class="container">
+            <div class="content-grid">
+                <div class="main-content">
+                    <h2>About This Course</h2>
+                    <p>[Detailed course description. Explain who this course is for, what problems it solves, and what transformation students can expect. Be specific about the outcomes and benefits.]</p>
+                    
+                    <p>[Additional paragraph about the course structure, teaching methodology, and why this approach works. Mention any unique aspects of the course delivery or content.]</p>
+
+                    <!-- What You'll Learn -->
+                    <div class="learning-outcomes">
+                        <h3>What You'll Learn</h3>
+                        <div class="outcomes-grid">
+                            <div class="outcome-item">[Specific learning outcome 1 - what skill/knowledge they'll gain]</div>
+                            <div class="outcome-item">[Specific learning outcome 2 - what skill/knowledge they'll gain]</div>
+                            <div class="outcome-item">[Specific learning outcome 3 - what skill/knowledge they'll gain]</div>
+                            <div class="outcome-item">[Specific learning outcome 4 - what skill/knowledge they'll gain]</div>
+                            <div class="outcome-item">[Specific learning outcome 5 - what skill/knowledge they'll gain]</div>
+                            <div class="outcome-item">[Specific learning outcome 6 - what skill/knowledge they'll gain]</div>
+                            <div class="outcome-item">[Specific learning outcome 7 - what skill/knowledge they'll gain]</div>
+                            <div class="outcome-item">[Specific learning outcome 8 - what skill/knowledge they'll gain]</div>
+                        </div>
+                    </div>
+
+                    <!-- Course Modules -->
+                    <div class="course-modules">
+                        <div class="module-header">
+                            <h3>Course Content</h3>
+                            <span class="module-count">[X] Modules</span>
+                        </div>
+                        <div class="module-list">
+                            <div class="module-item">
+                                <div class="module-title" onclick="this.nextElementSibling.classList.toggle('active')">
+                                    <span>Module 1: [Module Title]</span>
+                                    <span>▼</span>
+                                </div>
+                                <div class="module-content">
+                                    <p>[Brief description of this module and what it covers]</p>
+                                    <ul class="lesson-list">
+                                        <li class="lesson-item">
+                                            <span class="lesson-name">
+                                                <span class="lesson-icon">▶</span>
+                                                [Lesson 1 Title]
+                                            </span>
+                                            <span class="lesson-duration">[X:XX]</span>
+                                        </li>
+                                        <li class="lesson-item">
+                                            <span class="lesson-name">
+                                                <span class="lesson-icon">▶</span>
+                                                [Lesson 2 Title]
+                                            </span>
+                                            <span class="lesson-duration">[X:XX]</span>
+                                        </li>
+                                        <li class="lesson-item">
+                                            <span class="lesson-name">
+                                                <span class="lesson-icon">▶</span>
+                                                [Lesson 3 Title]
+                                            </span>
+                                            <span class="lesson-duration">[X:XX]</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="module-item">
+                                <div class="module-title" onclick="this.nextElementSibling.classList.toggle('active')">
+                                    <span>Module 2: [Module Title]</span>
+                                    <span>▼</span>
+                                </div>
+                                <div class="module-content">
+                                    <p>[Brief description of this module and what it covers]</p>
+                                    <ul class="lesson-list">
+                                        <li class="lesson-item">
+                                            <span class="lesson-name">
+                                                <span class="lesson-icon">▶</span>
+                                                [Lesson 1 Title]
+                                            </span>
+                                            <span class="lesson-duration">[X:XX]</span>
+                                        </li>
+                                        <li class="lesson-item">
+                                            <span class="lesson-name">
+                                                <span class="lesson-icon">▶</span>
+                                                [Lesson 2 Title]
+                                            </span>
+                                            <span class="lesson-duration">[X:XX]</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="module-item">
+                                <div class="module-title" onclick="this.nextElementSibling.classList.toggle('active')">
+                                    <span>Module 3: [Module Title]</span>
+                                    <span>▼</span>
+                                </div>
+                                <div class="module-content">
+                                    <p>[Brief description of this module and what it covers]</p>
+                                    <ul class="lesson-list">
+                                        <li class="lesson-item">
+                                            <span class="lesson-name">
+                                                <span class="lesson-icon">▶</span>
+                                                [Lesson 1 Title]
+                                            </span>
+                                            <span class="lesson-duration">[X:XX]</span>
+                                        </li>
+                                        <li class="lesson-item">
+                                            <span class="lesson-name">
+                                                <span class="lesson-icon">▶</span>
+                                                [Lesson 2 Title]
+                                            </span>
+                                            <span class="lesson-duration">[X:XX]</span>
+                                        </li>
+                                        <li class="lesson-item">
+                                            <span class="lesson-name">
+                                                <span class="lesson-icon">▶</span>
+                                                [Lesson 3 Title]
+                                            </span>
+                                            <span class="lesson-duration">[X:XX]</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="module-item">
+                                <div class="module-title" onclick="this.nextElementSibling.classList.toggle('active')">
+                                    <span>Module 4: [Module Title]</span>
+                                    <span>▼</span>
+                                </div>
+                                <div class="module-content">
+                                    <p>[Brief description of this module and what it covers]</p>
+                                    <ul class="lesson-list">
+                                        <li class="lesson-item">
+                                            <span class="lesson-name">
+                                                <span class="lesson-icon">▶</span>
+                                                [Lesson 1 Title]
+                                            </span>
+                                            <span class="lesson-duration">[X:XX]</span>
+                                        </li>
+                                        <li class="lesson-item">
+                                            <span class="lesson-name">
+                                                <span class="lesson-icon">▶</span>
+                                                [Lesson 2 Title]
+                                            </span>
+                                            <span class="lesson-duration">[X:XX]</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Instructor -->
+                    <div class="instructor-section">
+                        <h3>Your Instructor</h3>
+                        <div class="instructor-card">
+                            <div class="instructor-image">👤</div>
+                            <div class="instructor-info">
+                                <h4>[Instructor Full Name]</h4>
+                                <p class="instructor-title">[Title/Credentials]</p>
+                                <p class="instructor-bio">[Detailed bio of the instructor. Include their background, expertise, achievements, and why they're qualified to teach this course. Mention years of experience and any notable success stories or credentials that establish authority.]</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- FAQ -->
+                    <div class="faq-section">
+                        <h3>Frequently Asked Questions</h3>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
+                                <span>When does the course start and finish?</span>
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                The course starts now and never ends! It is a completely self-paced online course - you decide when you start and when you finish.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
+                                <span>How long do I have access to the course?</span>
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                How does lifetime access sound? After enrolling, you have unlimited access to this course for as long as you like - across any and all devices you own.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
+                                <span>What if I am unhappy with the course?</span>
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                We would never want you to be unhappy! If you are unsatisfied with your purchase, contact us in the first 30 days and we will give you a full refund.
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="this.nextElementSibling.classList.toggle('active')">
+                                <span>Is this course CPD accredited?</span>
+                                <span>+</span>
+                            </div>
+                            <div class="faq-answer">
+                                Yes! This course is fully CPD accredited. Upon completion, you'll receive a CPD certificate that counts towards your professional development requirements.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="sidebar-spacer"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Get Started?</h2>
+            <p>Join [X]+ students already learning on our platform. Enroll now and get instant access to the complete course.</p>
+            <a href="#" class="cta-btn">Enroll Now for $[Price]</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>[School Name]</h3>
+                    <p>Empowering learners worldwide with high-quality, CPD accredited online courses. Transform your career with expert-led training.</p>
+                    <div class="social-links">
+                        <a href="#">f</a>
+                        <a href="#">in</a>
+                        <a href="#">ig</a>
+                        <a href="#">yt</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">All Courses</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <ul>
+                        <li>[Email Address]</li>
+                        <li>[Phone Number]</li>
+                        <li>[Address Line 1]</li>
+                        <li>[Address Line 2]</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 [School Name]. All rights reserved. CPD Accredited.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
